@@ -1,0 +1,40 @@
+# Environment and secrets
+.env*
+!.env.example
+
+# Logs
+*.log
+
+# Data caches and generated output
+execution/market_data/data/
+execution/agents/output/
+results/
+data_cache/
+.cache/
+*.parquet
+*.feather
+context/session.md
+context/regime_signal.json
+
+# Python
+**/__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Local agent and editor settings
+.claude/
+.idea/
+.vscode/
+
+# OS files
+.DS_Store
+._*
+Thumbs.db
+desktop.ini
