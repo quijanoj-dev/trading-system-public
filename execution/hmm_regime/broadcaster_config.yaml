@@ -5,6 +5,5 @@ ticker: "ES=F"          # yfinance symbol (ES futures continuous)
 period: "1y"            # lookback period for HMM fit
 interval: "1d"          # bar interval
 
-output_mode: "stdout"   # stdout | file | webhook
+output_mode: "stdout"   # stdout | file
 output_file: "context/regime_signal.json"
-webhook_url: ""         # optional: URL to POST the regime JSON to (output_mode: webhook)

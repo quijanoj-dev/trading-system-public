@@ -4,7 +4,8 @@ Regime Broadcaster — fetches OHLCV, runs HMM regime detection, outputs JSON si
 Usage:
     python -m execution.hmm_regime.regime_broadcaster          # stdout (default)
     python -m execution.hmm_regime.regime_broadcaster --file   # write to output_file
-    python -m execution.hmm_regime.regime_broadcaster --webhook  # POST to webhook_url
+
+This module sends nothing outbound. Its former webhook mode was removed.
 """
 from __future__ import annotations
 
@@ -16,7 +17,6 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 import pandas as pd
-import requests
 import yaml
 
 _CONFIG_PATH = Path(__file__).parent / "broadcaster_config.yaml"
@@ -81,11 +81,7 @@ class RegimeBroadcaster:
             out_path.parent.mkdir(parents=True, exist_ok=True)
             out_path.write_text(json.dumps(payload, indent=2))
         elif mode == "webhook":
-            url = self.config.get("webhook_url", "")
-            if url:
-                requests.post(url, json=payload, timeout=10)
-            else:
-                print("WARNING: webhook_url not configured", file=sys.stderr)
+            raise RuntimeError("webhook mode was removed: this module sends nothing outbound")
         else:
             print(json.dumps(payload))
 
