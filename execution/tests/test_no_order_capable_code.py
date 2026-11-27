@@ -3,7 +3,8 @@
 The tests fail when code imports an order surface of a trading SDK, or when a
 new file starts talking to the network.
 
-This is NO_TRADE code. Nothing here grants authority to trade.
+This repository is research code and contains no broker connector. That is a
+property of this copy, kept by the tests below, not a trading prohibition.
 """
 from __future__ import annotations
 
